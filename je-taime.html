@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Je t'aime ♥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-deep: #2C5F7C;
+            --ocean-light: #6BA3C5;
+            --sand: #F5E6D3;
+            --coral: #FF9B85;
+            --sunset: #FFD89C;
+            --cream: #FFF9F0;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 30%, var(--ocean-light) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--ocean-deep);
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid transparent;
+        }
+
+        .back-button:hover {
+            background: var(--ocean-deep);
+            color: white;
+            transform: translateX(-5px);
+            border-color: var(--coral);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: var(--ocean-deep);
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.15);
+            border-top: 5px solid;
+            border-image: linear-gradient(90deg, var(--ocean-light), var(--coral)) 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: var(--ocean-deep);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral), var(--sunset));
+        }
+
+        /* Ce que j'aime chez toi */
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .love-card {
+            background: linear-gradient(135deg, var(--coral), var(--sunset));
+            color: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 1.15em;
+            line-height: 1.6;
+            box-shadow: 0 15px 40px rgba(255, 155, 133, 0.35);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .love-card:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 25px 60px rgba(255, 155, 133, 0.5);
+        }
+
+        .love-card:hover::before {
+            left: 100%;
+        }
+
+        .love-note {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-style: italic;
+            font-size: 1.05em;
+        }
+
+        /* Citations */
+        .quotes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-light));
+            color: white;
+            padding: 50px 45px;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(44, 95, 124, 0.4);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .quote-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px rgba(44, 95, 124, 0.5);
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 6em;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 1.6em;
+            font-style: italic;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .quote-author {
+            margin-top: 25px;
+            text-align: right;
+            font-size: 1.05em;
+            opacity: 0.9;
+            font-style: normal;
+        }
+
+        /* Quote spéciale RRRRR */
+        .quote-special {
+            background: linear-gradient(135deg, var(--coral), var(--sunset));
+        }
+
+        /* Quote romantique */
+        .quote-romantic {
+            background: linear-gradient(135deg, #E63946, #F77F00);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            .section { padding: 40px 30px; }
+            .back-button { top: 20px; left: 20px; }
+            .love-grid { grid-template-columns: 1fr; }
+            .quote-text { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Accueil</a>
+
+    <div class="page-header">
+        <h1>Je t'aime ♥</h1>
+        <p class="subtitle">Toutes les raisons de notre amour</p>
+    </div>
+
+    <div class="container">
+        <!-- Ce que j'aime chez toi -->
+        <section class="section">
+            <h2 class="section-title">Ce que j'aime chez toi</h2>
+            <div class="love-grid">
+                <div class="love-card">Ta persévérance qui m'inspire</div>
+                <div class="love-card">Ta loyauté sans faille</div>
+                <div class="love-card">Ton écoute attentive</div>
+                <div class="love-card">Ta folie qui me fait rire</div>
+                <div class="love-card">Ta beauté intérieure et extérieure</div>
+                <div class="love-card">Ton sourire qui illumine mes journées</div>
+                <div class="love-card">Ta douceur dans les moments tendres</div>
+                <div class="love-card">Ton intelligence qui me fascine</div>
+                <div class="love-card">Ta capacité à me surprendre</div>
+                <div class="love-card">Ton courage face aux défis</div>
+                <div class="love-card">Ta générosité du cœur</div>
+                <div class="love-card">Ta présence réconfortante</div>
+            </div>
+            <p class="love-note">Modifiez cette liste avec vos propres raisons d'amour ♥</p>
+        </section>
+
+        <!-- Citations -->
+        <section class="section">
+            <h2 class="section-title">Nos Citations Favorites</h2>
+            <div class="quotes-container">
+                
+                <div class="quote-box quote-special">
+                    <div class="quote-text">
+                        Tu poses et tu fais des pauses, les animaux ils mangent des corps.
+                    </div>
+                    <div class="quote-author">— RRRRR (2004)</div>
+                </div>
+
+                <div class="quote-box">
+                    <div class="quote-text">
+                        Mais... C'est qu'elle est pas mal du tout cette vérité !
+                    </div>
+                    <div class="quote-author">— RRRRR (2004)</div>
+                </div>
+
+                <div class="quote-box">
+                    <div class="quote-text">
+                        Non mais tu vas pas recommencer avec tes questions !
+                    </div>
+                    <div class="quote-author">— RRRRR (2004)</div>
+                </div>
+
+                <div class="quote-box quote-romantic">
+                    <div class="quote-text">
+                        L'amour, c'est être toujours ensemble, puis se séparer. Mais avec l'envie de se retrouver.
+                    </div>
+                    <div class="quote-author">— Citation d'amour</div>
+                </div>
+
+                <div class="quote-box quote-romantic">
+                    <div class="quote-text">
+                        Dans tes bras, j'ai trouvé ma maison.
+                    </div>
+                    <div class="quote-author">— Notre amour</div>
+                </div>
+
+                <div class="quote-box">
+                    <div class="quote-text">
+                        C'est pas faux.
+                    </div>
+                    <div class="quote-author">— Kaamelott (parce qu'on aime aussi !)</div>
+                </div>
+
+            </div>
+            <p class="love-note" style="margin-top: 50px;">Ajoutez vos propres citations d'amour et répliques favorites !</p>
+        </section>
+    </div>
+</body>
+</html>

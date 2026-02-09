@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Histoire ♥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-deep: #2C5F7C;
+            --ocean-light: #6BA3C5;
+            --sand: #F5E6D3;
+            --coral: #FF9B85;
+            --sunset: #FFD89C;
+            --cream: #FFF9F0;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 30%, var(--ocean-light) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--ocean-deep);
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid transparent;
+        }
+
+        .back-button:hover {
+            background: var(--ocean-deep);
+            color: white;
+            transform: translateX(-5px);
+            border-color: var(--coral);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: var(--ocean-deep);
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .column-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.15);
+            border-top: 5px solid;
+            border-image: linear-gradient(90deg, var(--ocean-light), var(--coral)) 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--ocean-deep);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--sunset));
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--ocean-light), var(--coral), var(--sunset));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 22px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--coral);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 155, 133, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            color: var(--coral);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, var(--cream), rgba(245, 230, 211, 0.5));
+            padding: 20px 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--sunset);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255, 155, 133, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 1.15em;
+            color: var(--ocean-deep);
+            font-weight: 500;
+        }
+
+        /* Map Locations */
+        .location-item {
+            background: linear-gradient(135deg, var(--cream), white);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border-left: 5px solid var(--ocean-light);
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(44, 95, 124, 0.1);
+        }
+
+        .location-item:hover {
+            transform: translateX(15px) scale(1.02);
+            border-left-color: var(--coral);
+            box-shadow: 0 15px 40px rgba(255, 155, 133, 0.3);
+        }
+
+        .location-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: var(--ocean-deep);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .location-address {
+            color: #666;
+            font-size: 1.05em;
+        }
+
+        @media (max-width: 1024px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 3em; }
+            .back-button { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Accueil</a>
+
+    <div class="page-header">
+        <h1>Notre Histoire</h1>
+        <p class="subtitle">Les moments qui ont écrit notre amour</p>
+    </div>
+
+    <div class="container">
+        <div class="two-column-layout">
+            <!-- Timeline Column -->
+            <div class="column-section">
+                <h2 class="section-title">Notre Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">4 septembre 2006</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Première rentrée scolaire ensemble</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">20 mars 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier message ✉️</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">1er avril 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier faux date 😄</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">17 avril 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier vrai date ♥</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">28 avril 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier baiser 💋</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">3 juillet 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Officialisation 💑</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">23 juillet 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier "Je t'aime" 💕</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">26-31 août 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premières vacances ensemble 🏖️</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">24 décembre 2025</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Premier Noël ensemble 🎄</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Column -->
+            <div class="column-section">
+                <h2 class="section-title">Nos Lieux Magiques</h2>
+                
+                <div class="location-item">
+                    <div class="location-name">🍺 Embassy Canadian Pub</div>
+                    <div class="location-address">Porte Maillot, Paris</div>
+                </div>
+
+                <div class="location-item">
+                    <div class="location-name">🏡 Notre petit nid</div>
+                    <div class="location-address">4 rue du hameau fleuri, Boulogne</div>
+                </div>
+
+                <div class="location-item">
+                    <div class="location-name">🌳 Notre refuge</div>
+                    <div class="location-address">3 boulevard Gabriel Péri, Rosny</div>
+                </div>
+
+                <div class="location-item">
+                    <div class="location-name">🌊 La plage des Sablons</div>
+                    <div class="location-address">Bretagne</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

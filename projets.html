@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Projets ♥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-deep: #2C5F7C;
+            --ocean-light: #6BA3C5;
+            --sand: #F5E6D3;
+            --coral: #FF9B85;
+            --sunset: #FFD89C;
+            --cream: #FFF9F0;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 30%, var(--ocean-light) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--ocean-deep);
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid transparent;
+        }
+
+        .back-button:hover {
+            background: var(--ocean-deep);
+            color: white;
+            transform: translateX(-5px);
+            border-color: var(--coral);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: var(--ocean-deep);
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .column-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.15);
+            border-top: 5px solid;
+            border-image: linear-gradient(90deg, var(--ocean-light), var(--coral)) 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--ocean-deep);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--sunset));
+        }
+
+        /* Projets de vie - Liste style */
+        .bucket-list {
+            list-style: none;
+        }
+
+        .bucket-item {
+            padding: 22px 25px;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, var(--cream), white);
+            border-radius: 18px;
+            border-left: 5px solid var(--sunset);
+            font-size: 1.15em;
+            transition: all 0.4s ease;
+            position: relative;
+            padding-left: 65px;
+            box-shadow: 0 5px 20px rgba(44, 95, 124, 0.08);
+        }
+
+        .bucket-item::before {
+            content: '♥';
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--coral);
+            font-size: 1.6em;
+        }
+
+        .bucket-item:hover {
+            transform: translateX(12px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(255, 155, 133, 0.3);
+            border-left-color: var(--coral);
+        }
+
+        /* Projets 2026 - Grid style */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, white, var(--cream));
+            padding: 30px 25px;
+            border-radius: 22px;
+            border: 2px solid rgba(107, 163, 197, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(44, 95, 124, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(255, 155, 133, 0.35);
+            border-color: var(--coral);
+        }
+
+        .project-icon {
+            font-size: 2.8em;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            color: var(--ocean-deep);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 3em; }
+            .back-button { top: 20px; left: 20px; }
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Accueil</a>
+
+    <div class="page-header">
+        <h1>Nos Projets</h1>
+        <p class="subtitle">Nos rêves et nos aventures à venir</p>
+    </div>
+
+    <div class="container">
+        <div class="two-column-layout">
+            <!-- Projets de Vie -->
+            <div class="column-section">
+                <h2 class="section-title">Nos Projets de Vie</h2>
+                <ul class="bucket-list">
+                    <li class="bucket-item">Emménager ensemble</li>
+                    <li class="bucket-item">Se pacser</li>
+                    <li class="bucket-item">Acheter une maison à la mer avec une cheminée</li>
+                    <li class="bucket-item">Avoir une famille avec 1, 2 ou 3 enfants</li>
+                    <li class="bucket-item">Avoir des chats</li>
+                    <li class="bucket-item">Voyager autour du monde</li>
+                    <li class="bucket-item">S'aimer pour toujours</li>
+                </ul>
+            </div>
+
+            <!-- Projets 2026 -->
+            <div class="column-section">
+                <h2 class="section-title">Nos Projets 2026</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-icon">📸</span>
+                        <div class="project-title">Journée photographique</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🎨</span>
+                        <div class="project-title">Activité insolite</div>
+                        <p class="project-description">Escape Game, atelier poterie...</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">💑</span>
+                        <div class="project-title">Refaire le 1er date</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">✈️</span>
+                        <div class="project-title">Voyage 1 semaine</div>
+                        <p class="project-description">Vienne, Bratislava, Cracovie</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🥾</span>
+                        <div class="project-title">Randonnées</div>
+                        <p class="project-description">Chez Lucile et aux Coches</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🏠</span>
+                        <div class="project-title">Emménagement</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🏃</span>
+                        <div class="project-title">Aller courir ensemble</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🌍</span>
+                        <div class="project-title">City trips</div>
+                        <p class="project-description">Marseille, Istanbul, capitales nordiques...</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🚂</span>
+                        <div class="project-title">Interrail</div>
+                        <p class="project-description">Europe de l'Est, Ex-Yougoslavie, Albanie</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🎳</span>
+                        <div class="project-title">Bowling</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🕹️</span>
+                        <div class="project-title">Jeux d'arcade</div>
+                        <p class="project-description">La tête dans les nuages</p>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">👨‍🍳</span>
+                        <div class="project-title">Atelier cuisine</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🏺</span>
+                        <div class="project-title">Atelier poterie</div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-icon">🖼️</span>
+                        <div class="project-title">Visite musée</div>
+                        <p class="project-description">Invitation réciproque (28/03)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

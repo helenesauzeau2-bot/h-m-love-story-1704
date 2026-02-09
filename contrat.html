@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Contrat d'Amour ♥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-deep: #2C5F7C;
+            --ocean-light: #6BA3C5;
+            --sand: #F5E6D3;
+            --coral: #FF9B85;
+            --sunset: #FFD89C;
+            --cream: #FFF9F0;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 30%, var(--ocean-light) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--ocean-deep);
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid transparent;
+        }
+
+        .back-button:hover {
+            background: var(--ocean-deep);
+            color: white;
+            transform: translateX(-5px);
+            border-color: var(--coral);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: var(--ocean-deep);
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contract-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            box-shadow: 0 25px 70px rgba(44, 95, 124, 0.2);
+            border-top: 6px solid;
+            border-image: linear-gradient(90deg, var(--ocean-light), var(--coral), var(--gold)) 1;
+        }
+
+        .contract-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px double var(--gold);
+        }
+
+        .contract-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--ocean-deep);
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .contract-parties {
+            font-size: 1.15em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .contract-parties strong {
+            color: var(--ocean-deep);
+        }
+
+        .contract-intro {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            line-height: 1.9;
+            margin: 30px 0 50px;
+            font-size: 1.05em;
+            padding: 0 20px;
+        }
+
+        .article {
+            margin-bottom: 35px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--cream), rgba(255, 249, 240, 0.5));
+            border-radius: 20px;
+            border-left: 6px solid var(--coral);
+            transition: all 0.4s ease;
+        }
+
+        .article:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(255, 155, 133, 0.25);
+            border-left-color: var(--gold);
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: var(--ocean-deep);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .article-content {
+            color: #444;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .article-content ul {
+            margin: 15px 0 15px 30px;
+            list-style: none;
+        }
+
+        .article-content ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .article-content ul li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-size: 1.2em;
+        }
+
+        .contract-footer {
+            margin-top: 50px;
+            padding: 35px;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-light));
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(44, 95, 124, 0.3);
+        }
+
+        .contract-footer strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 15px;
+            color: var(--sunset);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .contract-container { padding: 40px 30px; }
+            .back-button { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Accueil</a>
+
+    <div class="page-header">
+        <h1>Notre Contrat d'Amour</h1>
+        <p class="subtitle">Les promesses qui guident notre relation</p>
+    </div>
+
+    <div class="container">
+        <div class="contract-container">
+            <div class="contract-header">
+                <h2 class="contract-title">CONTRAT DE RELATION AMOUREUSE</h2>
+                <div class="contract-parties">
+                    <strong>Entre :</strong> Martin, Yves, Frédéric SALEMBIER<br>
+                    <strong>et</strong> Hélène, Erica, Margot SAUZEAU
+                </div>
+            </div>
+
+            <div class="contract-intro">
+                Les deux parties, par la présente, conviennent librement et de plein gré des clauses suivantes, 
+                dans le but d'entretenir une relation saine, bienveillante et durable, fondée sur le respect, 
+                la complicité et l'amour partagé. Ce contrat est symbolique et non juridiquement contraignant, 
+                mais moralement engageant pour les deux parties, dans un esprit de sincérité et de construction commune.
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 1 : Bienveillance et soin mutuel</div>
+                <div class="article-content">
+                    Les parties s'engagent à toujours se traiter avec respect, douceur et bienveillance. 
+                    Chacun veille au bien-être de l'autre, dans les moments heureux comme dans les périodes difficiles 
+                    et s'engage à pratiquer une écoute active et attentive lors des échanges.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 2 : Partage et réciprocité</div>
+                <div class="article-content">
+                    Les parties conviennent de recevoir avec gratitude ce que l'autre souhaite offrir, 
+                    matériellement ou émotionnellement, et de donner en retour avec générosité et sincérité, 
+                    sans obligation mais avec le cœur.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 3 : Communication</div>
+                <div class="article-content">
+                    Les parties s'engagent à exprimer leurs ressentis, qu'ils soient positifs ou négatifs, 
+                    afin de préserver une compréhension mutuelle. Dire « ça ne va pas » est aussi important 
+                    que dire « ça va très bien ».
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 4 : Fidélité et loyauté</div>
+                <div class="article-content">
+                    Les parties s'engagent à rester fidèles l'une envers l'autre, à ne pas commettre d'actes 
+                    qu'elles ne souhaiteraient pas subir elles-mêmes, et à cultiver une confiance mutuelle solide 
+                    et durable, fondée sur la transparence et l'honnêteté.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 5 : Temps de qualité</div>
+                <div class="article-content">
+                    Les parties s'engagent à consacrer régulièrement du temps de qualité l'une à l'autre, 
+                    en accordant toute leur attention au moment partagé, sans distractions numériques ou professionnelles, 
+                    afin de nourrir la connexion émotionnelle et renforcer la complicité.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 6 : Cultiver la joie et les souvenirs</div>
+                <div class="article-content">
+                    Les parties s'engagent à créer ensemble des moments de bonheur, petits ou grands, 
+                    et à nourrir leur relation par des rires, des attentions, et des aventures partagées. 
+                    Les souvenirs ainsi créés seront considérés comme patrimoine commun du couple, 
+                    et les succès, petits ou grands, seront célébrés ensemble.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 7 : Célébration des petites choses</div>
+                <div class="article-content">
+                    Les parties s'engagent à savourer les petits bonheurs quotidiens : un café partagé 
+                    (ou bubble tea), un message inattendu, un sourire complice.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 8 : Rituels communs</div>
+                <div class="article-content">
+                    Les parties conviennent de mettre en place et de préserver des rituels communs 
+                    (cuisiner et manger ensemble et autres rituels à définir) qui serviront de repères 
+                    positifs et rassurants dans la relation.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 9 : Soutien dans les projets personnels</div>
+                <div class="article-content">
+                    Chaque partie s'engage à encourager et soutenir les ambitions, passions et objectifs de l'autre, 
+                    même si ceux-ci sont différents des siens.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 10 : Hygiène de vie et bien-être</div>
+                <div class="article-content">
+                    Les parties s'engagent à encourager et maintenir ensemble un mode de vie sain, 
+                    favorisant la santé physique, mentale et émotionnelle. Cela inclut :
+                    <ul>
+                        <li>la pratique régulière d'une activité physique adaptée,</li>
+                        <li>une alimentation variée, équilibrée et préparée avec soin,</li>
+                        <li>une consommation modérée ou occasionnelle d'alcool,</li>
+                        <li>le respect de l'engagement mutuel à ne pas fumer, ni reprendre la consommation de tabac 
+                        sous quelque forme que ce soit.</li>
+                    </ul>
+                    Ces choix sont considérés comme des engagements communs visant à préserver la vitalité, 
+                    la longévité et le bien-être du couple.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 11 : Droit à l'espace personnel</div>
+                <div class="article-content">
+                    Les parties reconnaissent l'importance d'un espace individuel (temps seul, amis, hobbies) 
+                    et s'engagent à le respecter sans jalousie excessive.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 12 : Résolution pacifique des désaccords</div>
+                <div class="article-content">
+                    En cas de conflits, les parties privilégient la discussion calme et le compromis 
+                    plutôt que la colère ou l'ignorance, et, si nécessaire, conviennent d'un temps de pause 
+                    avant de reprendre la discussion.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 13 : Intimité et consentement</div>
+                <div class="article-content">
+                    Les parties s'engagent à nourrir leur relation intime avec respect, tendresse et désir partagé. 
+                    Toute interaction physique doit être librement consentie par les deux parties et viser le plaisir, 
+                    la complicité et la connexion émotionnelle. Les besoins et envies de chacun seront exprimés 
+                    et pris en compte dans un dialogue ouvert et bienveillant.
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-title">Article 14 : Évolution ensemble</div>
+                <div class="article-content">
+                    Les parties s'engagent à évoluer et grandir ensemble, en acceptant que chacun change au fil du temps, 
+                    et à adapter leur relation en conséquence, tout en restant curieux(ses) l'un de l'autre.
+                </div>
+            </div>
+
+            <div class="contract-footer">
+                <strong>Durée de renouvellement :</strong>
+                Ce contrat prend effet à compter de la date de signature et reste valable indéfiniment, 
+                sous réserve de la volonté commune des deux parties de l'honorer. Il peut être amendé à tout moment 
+                d'un commun accord, par écrit et signé par les deux parties.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
