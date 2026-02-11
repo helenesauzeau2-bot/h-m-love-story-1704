@@ -619,7 +619,7 @@
         setInterval(updateCountdown, 1000);
         setInterval(updateCounters, 1000 * 60 * 60);
     </script>
-    <!-- POPUP VALENTIN -->
+<!-- POPUP VALENTIN -->
 <div id="valentinPopup" class="popup-overlay">
   <div class="popup-box">
     <h2>💌 Question importante...</h2>
@@ -635,7 +635,6 @@
 </div>
 
 <style>
-/* Overlay */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -647,7 +646,6 @@
   z-index: 9999;
 }
 
-/* Box */
 .popup-box {
   background: white;
   padding: 50px 40px;
@@ -656,6 +654,7 @@
   max-width: 400px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   animation: popIn 0.6s ease;
+  position: relative;
 }
 
 .popup-box h2 {
@@ -673,6 +672,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+  position: relative;
 }
 
 .popup-buttons button {
@@ -695,10 +695,7 @@
 
 #noBtn {
   background: #ddd;
-}
-
-#noBtn:hover {
-  background: #bbb;
+  position: relative;
 }
 
 .popup-message {
@@ -707,16 +704,9 @@
   color: #E63946;
 }
 
-/* Animation */
 @keyframes popIn {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 </style>
 
@@ -726,17 +716,29 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("popupMessage");
 
+/* 1️⃣ Afficher seulement si jamais accepté */
+if (localStorage.getItem("valentinAccepted")) {
+  popup.style.display = "none";
+}
+
+/* 2️⃣ Oui */
 yesBtn.addEventListener("click", () => {
+  localStorage.setItem("valentinAccepted", "true");
   popup.style.display = "none";
 });
 
+/* 3️⃣ Bouton NON qui s’échappe */
+noBtn.addEventListener("mouseover", () => {
+  const randomX = Math.floor(Math.random() * 200) - 100;
+  const randomY = Math.floor(Math.random() * 200) - 100;
+  noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+});
+
+/* 4️⃣ Si jamais il réussit quand même à cliquer */
 noBtn.addEventListener("click", () => {
-  message.textContent = "Alors malheureusement... tu ne peux pas accéder à ce site 💔";
-  setTimeout(() => {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%;font-family:Playfair Display,serif;'>Accès refusé 💔</h1>";
-  }, 2000);
+  message.textContent = "Impossible de refuser 😌💘";
 });
 </script>
-
+   
 </body>
 </html>
