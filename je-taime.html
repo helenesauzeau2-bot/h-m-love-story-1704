@@ -325,10 +325,10 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
         .gallery-item {
             aspect-ratio: 1;
@@ -346,6 +346,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            width: 100%;
+    object-fit: cover;
         }
 
         .gallery-item::before {
@@ -631,14 +633,10 @@ Tu n’essaies pas toujours de réparer.
     <!-- Gallery Section -->
     <section class="gallery-section">
         <div class="gallery-grid">
-            <img src="photo1.jpg">📸 Nos premières photos</div>
-            <div class="gallery-item">💝 Moments précieux</div>
-            <div class="gallery-item">🌅 Couchers de soleil</div>
-            <div class="gallery-item">😊 Nos sourires</div>
-            <div class="gallery-item">🎉 Nos célébrations</div>
-            <div class="gallery-item">✨ Notre bonheur</div>
+            <img src="images/704D5196-51A3-4867-97CA-3F49426E0E7C.jpeg" alt="Notre photo" class="gallery-item">
+            <img src="images/IMG_5771.jpeg" alt="Notre photo" class="gallery-item">
+            <img src="images/IMG_5931.jpeg" alt="Notre photo" class="gallery-item">
         </div>
-        <p class="gallery-note">Pour ajouter vos photos, remplacez les divs par des balises &lt;img&gt;</p>
     </section>
 <!-- Footer -->
     <footer>
