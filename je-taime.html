@@ -114,25 +114,27 @@
             background: linear-gradient(90deg, var(--coral), var(--sunset));
         }
 
-        /* Ce que j'aime chez toi */
-       .love-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
+        /* ===== GRILLE DES CARTES ===== */
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
+        /* ===== CARTE SIMPLE ===== */
         .love-card {
             background: linear-gradient(135deg, var(--coral), var(--sunset));
             color: white;
-            padding: 40px 30px;
+            padding: 35px 30px;
             border-radius: 25px;
-            text-align: center;
-            font-size: 1.15em;
-            line-height: 1.6;
             box-shadow: 0 15px 40px rgba(255, 155, 133, 0.35);
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .love-card::before {
@@ -153,12 +155,30 @@
         }
 
         .love-card:hover {
-            transform: scale(1.08) rotate(2deg);
+            transform: translateY(-10px) scale(1.03);
             box-shadow: 0 25px 60px rgba(255, 155, 133, 0.5);
         }
 
         .love-card:hover::before {
             left: 100%;
+        }
+
+        .love-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-description {
+            font-size: 1.05em;
+            line-height: 1.7;
+            font-style: italic;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
         .love-note {
@@ -168,60 +188,6 @@
             font-style: italic;
             font-size: 1.05em;
         }
-        /* ===== FLIP LOVE CARD ===== */
-.flip-card {
-    perspective: 1000px;
-}
-.flip-card input {
-    position: absolute;
-    opacity: 0;
-}
-
-.flip-inner {
-    position: relative;
-    width: 100%;
-    min-height: 180px;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
-    cursor: pointer;
-}
-
-/* rotation au clic */
-.flip-card input:checked + .flip-inner {
-    transform: rotateY(180deg);
-}
-
-/* faces */
-.flip-front,
-.flip-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 25px;
-    padding: 40px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.15em;
-    line-height: 1.6;
-    box-shadow: 0 15px 40px rgba(255, 155, 133, 0.35);
-}
-
-/* face avant = style existant */
-.flip-front {
-    background: linear-gradient(135deg, var(--coral), var(--sunset));
-    color: white;
-}
-
-/* face arrière */
-.flip-back {
-    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-light));
-    color: white;
-    transform: rotateY(180deg);
-    font-style: italic;
-}
-
 
         /* Citations */
         .quotes-container {
@@ -273,25 +239,24 @@
             font-style: normal;
         }
 
-        /* Quote spéciale RRRRR */
         .quote-special {
             background: linear-gradient(135deg, var(--coral), var(--sunset));
         }
 
-        /* Quote romantique */
         .quote-romantic {
             background: linear-gradient(135deg, #E63946, #F77F00);
         }
-      
-           /* Gallery */
+
+        /* Gallery */
         .gallery-section {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border-radius: 40px;
-            box-shadow: 0 25px 70px rgba(44, 95, 124, 0.2);
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.15);
+            border-top: 5px solid;
+            border-image: linear-gradient(90deg, var(--ocean-light), var(--coral)) 1;
         }
 
         .gallery-title {
@@ -317,41 +282,19 @@
         }
 
         .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
         .gallery-item {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--ocean-light), var(--coral), var(--sunset));
             border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3em;
-            text-align: center;
-            padding: 30px;
-            transition: all 0.5s ease;
-            box-shadow: 0 15px 40px rgba(44, 95, 124, 0.2);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
             width: 100%;
-    object-fit: cover;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2));
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(44, 95, 124, 0.2);
+            transition: all 0.5s ease;
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -359,22 +302,10 @@
             box-shadow: 0 25px 60px rgba(255, 155, 133, 0.5);
         }
 
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-note {
-            text-align: center;
-            margin-top: 40px;
-            color: #666;
-            font-style: italic;
-        }
-
         /* Footer */
         footer {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(180deg, transparent, rgba(245, 230, 211, 0.5));
         }
 
         .footer-heart {
@@ -384,24 +315,34 @@
             animation: heartbeat 2s ease-in-out infinite;
         }
 
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
         .footer-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.8em;
             color: var(--ocean-deep);
             font-weight: 600;
         }
-         @media (max-width: 768px) {
+
+        /* Responsive */
+        @media (max-width: 768px) {
             h1 { font-size: 3em; }
             .section { padding: 40px 30px; }
             .back-button { top: 20px; left: 20px; }
-            .love-grid { grid-template-columns: 1fr; }
-            .quote-text { font-size: 1.3em; }
+            .love-grid { 
+                grid-template-columns: 1fr !important;
+            }
+            .love-card {
+                min-height: 180px;
+            }
             .gallery-grid {
-        grid-template-columns: 1fr !important;
-    .love-grid { 
-        grid-template-columns: 1fr !important; 
-    }
-}
+                grid-template-columns: 1fr !important;
+            }
+            .quote-text { font-size: 1.3em; }
+        }
     </style>
 </head>
 <body>
@@ -417,169 +358,81 @@
         <section class="section">
             <h2 class="section-title">Ce que j'aime chez toi</h2>
             <div class="love-grid">
-                <div class="flip-card">
-    <input type="checkbox" id="love1">
-    <label for="love1" class="flip-inner">
+                
+                <!-- Carte 1 -->
+                <div class="love-card">
+                    <div class="love-title">Ta présence réconfortante</div>
+                    <div class="love-description">
+                        Tu es là quand j'ai besoin de toi. Tu m'enlaces quand ça ne va pas. Tu n'essaies pas toujours de réparer.
+                    </div>
+                </div>
 
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
+                <!-- Carte 2 -->
+                <div class="love-card">
+                    <div class="love-title">Ta loyauté sans faille</div>
+                    <div class="love-description">
+                        Je peux te faire confiance. Tu tiens tes promesses. Tu es toujours honnête avec moi.
+                    </div>
+                </div>
 
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
+                <!-- Carte 3 -->
+                <div class="love-card">
+                    <div class="love-title">Ton écoute attentive</div>
+                    <div class="love-description">
+                        Tu m'écoutes vraiment. Tu ne juges pas. Tu comprends ce que je ressens.
+                    </div>
+                </div>
 
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love2">
-    <label for="love2" class="flip-inner">
+                <!-- Carte 4 -->
+                <div class="love-card">
+                    <div class="love-title">Ta folie qui me fait rire</div>
+                    <div class="love-description">
+                        Tu me fais rire aux éclats. Tu es spontané(e) et fun. Avec toi, je ne m'ennuie jamais.
+                    </div>
+                </div>
 
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
+                <!-- Carte 5 -->
+                <div class="love-card">
+                    <div class="love-title">Ta beauté captivante</div>
+                    <div class="love-description">
+                        Tu es magnifique. Ton sourire illumine mes journées. Je ne me lasse pas de te regarder.
+                    </div>
+                </div>
 
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
+                <!-- Carte 6 -->
+                <div class="love-card">
+                    <div class="love-title">Ta persévérance inspirante</div>
+                    <div class="love-description">
+                        Tu ne baisses jamais les bras. Tu m'inspires à donner le meilleur. Ta détermination est admirable.
+                    </div>
+                </div>
 
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love3">
-    <label for="love3" class="flip-inner">
+                <!-- Carte 7 -->
+                <div class="love-card">
+                    <div class="love-title">Ta douceur apaisante</div>
+                    <div class="love-description">
+                        Tes gestes tendres me touchent. Tu es attentionné(e) et délicat(e). Avec toi, je me sens en sécurité.
+                    </div>
+                </div>
 
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
+                <!-- Carte 8 -->
+                <div class="love-card">
+                    <div class="love-title">Ton intelligence fascinante</div>
+                    <div class="love-description">
+                        Nos conversations m'enrichissent. Tu as une vision unique du monde. J'apprends tellement avec toi.
+                    </div>
+                </div>
 
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
+                <!-- Carte 9 -->
+                <div class="love-card">
+                    <div class="love-title">Ta générosité du cœur</div>
+                    <div class="love-description">
+                        Tu donnes sans compter. Tu penses aux autres. Ton cœur est immense.
+                    </div>
+                </div>
 
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love4">
-    <label for="love4" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love5">
-    <label for="love5" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love6">
-    <label for="love6" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love7">
-    <label for="love7" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love8">
-    <label for="love8" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
-                <div class="flip-card">
-    <input type="checkbox" id="love9">
-    <label for="love9" class="flip-inner">
-
-        <!-- FACE AVANT -->
-        <div class="flip-front">
-            Ta présence réconfortante
-        </div>
-
-        <!-- FACE ARRIÈRE -->
-        <div class="flip-back">
-            Tu es là quand j’ai besoin de toi.<br>
-Tu m’enlaces quand ça ne va pas.<br>
-Tu n’essaies pas toujours de réparer.
-        </div>
-
-    </label>
-</div>
             </div>
+            <p class="love-note">Personnalisez chaque carte avec vos propres raisons d'amour ♥</p>
         </section>
 
         <!-- Citations -->
@@ -592,20 +445,37 @@ Tu n’essaies pas toujours de réparer.
                     </div>
                     <div class="quote-author">— RRRRR (2004)</div>
                 </div>
-                 </div>
-            <p class="love-note" style="margin-top: 50px;">Ajoutez des citations de la flamme jonathan cohen, ma meuleuse mr poulpe, mon sac est fait ?!</p>
+
+                <div class="quote-box">
+                    <div class="quote-text">
+                        Mais... C'est qu'elle est pas mal du tout cette vérité !
+                    </div>
+                    <div class="quote-author">— RRRRR (2004)</div>
+                </div>
+
+                <div class="quote-box quote-romantic">
+                    <div class="quote-text">
+                        Dans tes bras, j'ai trouvé ma maison.
+                    </div>
+                    <div class="quote-author">— Notre amour</div>
+                </div>
+            </div>
+            <p class="love-note" style="margin-top: 50px;">Ajoutez des citations : la flamme Jonathan Cohen, ma meuleuse Mr Poulpe, mon sac est fait ?!</p>
         </section>
-    
-    <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="gallery-grid">
-            <img src="images/704D5196-51A3-4867-97CA-3F49426E0E7C.jpeg" alt="Notre photo" class="gallery-item">
-            <img src="images/IMG_5771.jpeg" alt="Notre photo" class="gallery-item">
-            <img src="images/IMG_5931.jpeg" alt="Notre photo" class="gallery-item">
-        </div>
-    </section>
-        </div>
-<!-- Footer -->
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Nos Souvenirs</h2>
+            <div class="gallery-grid">
+                <img src="images/704D5196-51A3-4867-97CA-3F49426E0E7C.jpeg" alt="Notre photo" class="gallery-item">
+                <img src="images/IMG_5771.jpeg" alt="Notre photo" class="gallery-item">
+                <img src="images/IMG_5931.jpeg" alt="Notre photo" class="gallery-item">
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-heart">♥</div>
         <p class="footer-text">Pour toujours ∞</p>
