@@ -394,7 +394,59 @@
             color: #666;
             font-style: italic;
         }
+/* ===== FLIP LOVE CARD ===== */
+.flip-card {
+    perspective: 1000px;
+}
 
+.flip-card input {
+    display: none;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    cursor: pointer;
+}
+
+/* rotation au clic */
+.flip-card input:checked + .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* faces */
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.15em;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px rgba(255, 155, 133, 0.35);
+}
+
+/* face avant = style existant */
+.flip-front {
+    background: linear-gradient(135deg, var(--coral), var(--sunset));
+    color: white;
+}
+
+/* face arrière */
+.flip-back {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-light));
+    color: white;
+    transform: rotateY(180deg);
+    font-style: italic;
+}
         /* Footer */
         footer {
             text-align: center;
