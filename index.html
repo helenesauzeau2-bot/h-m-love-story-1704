@@ -252,11 +252,11 @@
             padding: 0 20px;
         }
 
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+     .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
         }
 
         .nav-card {
@@ -344,10 +344,10 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
         .gallery-item {
             aspect-ratio: 1;
@@ -365,6 +365,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            width: 100%;
+    object-fit: cover;
         }
 
         .gallery-item::before {
@@ -561,14 +563,13 @@
     <section class="gallery-section">
         <h2 class="gallery-title">Notre Galerie de Souvenirs</h2>
         <div class="gallery-grid">
-            <img src="images/IMG_5550.jpeg" class="gallery-item">📸 Nos premières photos</div>
+            <img src="images/IMG_5550.jpeg" alt="Notre photo" class="gallery-item">
             <div class="gallery-item">💝 Moments précieux</div>
             <div class="gallery-item">🌅 Couchers de soleil</div>
             <div class="gallery-item">😊 Nos sourires</div>
             <div class="gallery-item">🎉 Nos célébrations</div>
             <div class="gallery-item">✨ Notre bonheur</div>
         </div>
-        <p class="gallery-note">Pour ajouter vos photos, remplacez les divs par des balises &lt;img&gt;</p>
     </section>
 
     <!-- Footer -->
