@@ -326,6 +326,15 @@
     object-fit: cover;
     display: block;
 }
+        .gallery-grid:has(figure:only-child) .gallery-item {
+    aspect-ratio: auto;
+    min-height: 500px;
+}
+
+.gallery-grid:has(figure:only-child) .gallery-item img {
+    object-fit: contain;
+    background: var(--cream);
+}
 /* Quand il n'y a qu'une seule photo */
 .gallery-grid:has(figure:only-child) {
     grid-template-columns: 1fr;
