@@ -60,6 +60,32 @@
             margin-bottom: 60px;
             margin-top: 40px;
         }
+        .intro-text {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border-left: 4px solid var(--coral);
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: #555;
+    box-shadow: 0 10px 30px rgba(44, 95, 124, 0.1);
+}
+
+.intro-text a {
+    color: var(--ocean-deep);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid var(--coral);
+    transition: all 0.3s ease;
+}
+
+.intro-text a:hover {
+    color: var(--coral);
+    border-bottom-color: var(--ocean-deep);
+}
 
         h1 {
             font-family: 'Playfair Display', serif;
@@ -300,7 +326,16 @@
     object-fit: cover;
     display: block;
 }
+/* Quand il n'y a qu'une seule photo */
+.gallery-grid:has(figure:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
+.gallery-grid:has(figure:only-child) .gallery-item {
+    aspect-ratio: 16/9;
+}
 /* Légende cachée par défaut */
 .gallery-item figcaption {
     position: absolute;
@@ -360,8 +395,12 @@
     <div class="page-header">
         <h1>Nos Projets</h1>
         <p class="subtitle">Nos rêves et nos aventures à venir</p>
-        <p>Pour revenir à nos classiques, n'hésite pas à consulter le <a href="https://www.notion.so/d9b61d4f0bb58292abc881f23d536914?v=9d861d4f0bb5829eabb408a2e0de8d5e&source=copy_link">suivi de nos projets ici </a>. </p>
-    </div>
+<div class="intro-text">
+        Pour revenir à nos classiques, n'hésite pas à consulter le 
+        <a href="https://www.notion.so/d9b61d4f0bb58292abc881f23d536914?v=9d861d4f0bb5829eabb408a2e0de8d5e&source=copy_link">
+            suivi de nos projets ici
+        </a>.
+    </div>    </div>
 
     <div class="container">
         <div class="two-column-layout">
