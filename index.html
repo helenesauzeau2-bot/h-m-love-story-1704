@@ -399,9 +399,47 @@
             .gallery-grid {
                 grid-template-columns: 1fr !important;
             }
-            .quote-text { font-size: 1.3em; }
+            .quote-text { 
+                font-size: 1.3em; 
+           }
+            .nav-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+           }
         }
-
+/* Mobile : 1 bouton par ligne */
+@media (max-width: 768px) {
+    h1 { font-size: 3em; }
+    .section { padding: 40px 30px; }
+    .back-button { top: 20px; left: 20px; }
+    .love-grid { 
+        grid-template-columns: 1fr !important;
+    }
+    .love-card {
+        min-height: 180px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .quote-text { font-size: 1.3em; }
+    
+    .nav-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .nav-card {
+        padding: 35px 25px;
+    }
+    
+    .nav-icon {
+        font-size: 2.5em;
+    }
+    
+    .nav-title {
+        font-size: 1.5em;
+    }
+}
     </style>
 </head>
 <body>
